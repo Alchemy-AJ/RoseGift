@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hi Afia, I am Excptic, your personal mood jar <3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-image: url("https://i.pinimg.com/736x/ee/45/8e/ee458ead0b06fc9d3c18290aec803000.jpg"); /* Rainy, greenish Edinburgh */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #e1ede5;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    h1 {
+      color: #b4cdb9;
+      text-shadow: 2px 2px 4px #1f2d24;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #d3e0d8;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background: #3a554b;
+      border: 1px solid #b4cdb9;
+      color: #f0f5f3;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+      background: #4e6e62;
+    }
+
+    .jar {
+      background: rgba(10, 20, 15, 0.5);
+      border: 2px solid #b4cdb9;
+      border-radius: 1rem;
+      padding: 2rem;
+      width: 80%;
+      margin: 0 auto;
+      max-width: 500px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .quote {
+      font-size: 1.3rem;
+      color: #f0f5f3;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hi Afia, I am Excptic, your personal mood jar <3</h1>
+  <p class="subtitle">Please choose your current mood!</p>
+
+  <div class="button-container">
+    <button onclick="showQuote('angry')">Angry</button>
+    <button onclick="showQuote('frustrated')">Frustrated</button>
+    <button onclick="showQuote('depressed')">Depressed</button>
+    <button onclick="showQuote('motivational')">Motivational</button>
+    <button onclick="showQuote('inspiring')">Inspiring</button>
+    <button onclick="showQuote('scared')">Scared</button>
+    <button onclick="showQuote('tired')">Tired</button>
+  </div>
+
+  <div class="jar">
+    <p id="quote" class="quote">Your quote will appear here <3 Mwah</p>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/01/06/audio_77b2ab68b3.mp3?filename=magic-in-the-air-135899.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const quotes = {
+      angry: [
+        "Take a deep breath. Inhale peace, exhale rage.",
+        "Anger is a valid emotion. Just don’t let it control you.",
+        "It’s okay to be angry, just don’t forget to let it go."
+      ],
+      frustrated: [
+        "You are doing the best you can, and that is enough.",
+        "Even the strongest storms pass. Keep going.",
+        "Frustration is just a sign that you’re trying."
+      ],
+      depressed: [
+        "You are not alone. You are loved more than you know.",
+        "This feeling is temporary. You are not your sadness.",
+        "Even the darkest night ends with sunrise."
+      ],
+      motivational: [
+        "You’ve got this. One step at a time.",
+        "Push yourself, because no one else is going to do it for you.",
+        "Your future is created by what you do today."
+      ],
+      inspiring: [
+        "You are capable of amazing things.",
+        "Let your dreams be bigger than your fears.",
+        "Every small step matters. Keep shining."
+      ],
+      scared: [
+        "Fear is just the beginning of courage.",
+        "It’s okay to be scared. Do it anyway.",
+        "Your bravery is stronger than your fear."
+      ],
+      tired: [
+        "Rest is not a weakness. It’s essential.",
+        "Take a break, you deserve it.",
+        "It’s okay to pause and breathe."
+      ]
+    };
+
+    function showQuote(mood) {
+      const quoteArray = quotes[mood];
+      const randomIndex = Math.floor(Math.random() * quoteArray.length);
+      document.getElementById('quote').textContent = quoteArray[randomIndex];
+    }
+  </script>
+</body>
+</html>
